@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flight Delays by Origin & Year</title>
+    <link rel="stylesheet" href="index.css">
+    <script>
+        // Function to populate the Year dropdown
+        function populateYearDropdown() {
+            const select = document.getElementById('year-select');
+
+            // Add the "ALL" option first
+            const allOption = document.createElement('option');
+            allOption.value = 'ALL';
+            allOption.text = 'ALL';
+            select.appendChild(allOption);
+
+            // Define the range of years
+            const startYear = 2000;
+            const endYear = 2023;
+
+            // Loop through the range and create option elements
+            for (let year = startYear; year <= endYear; year++) {
+                const option = document.createElement('option');
+                option.value = year.toString();
+                option.text = year.toString();
+                select.appendChild(option);
+            }
+
+            // Optionally, set a default selected value
+            select.value = 'ALL';
+        }
+
+        // Execute the function after the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', populateYearDropdown);
+    </script>
+</head>
+<body>
+<!-- Form Table -->
+<div class="form-table">
+    <form action="/delays.html" method="get" target="results_iframe">
+        <table>
+            <tr>
+                <th><label for="origin-input">Origin:</label></th>
+                <td><input type="text" id="origin-input" name="origin" value="ORD" pattern="[A-Z]{3}" title="Please enter a valid 3-letter airport code." required></td>
+            </tr>
+            <tr>
+                <th><label for="year-select">Year:</label></th>
+                <td>
+                    <select name="year" id="year-select">
+                        <!-- Options will be populated by JavaScript -->
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th></th>
+                <td><input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<!-- Results Iframe -->
+<iframe name="results_iframe"></iframe>
+</body>
+</html>

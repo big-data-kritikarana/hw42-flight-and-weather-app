@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit Weather</title>
+    <link rel="stylesheet" href="submit-weather.css">
+</head>
+<body>
+<div class="submit-weather-form">
+    <h2>Submit Weather Report</h2>
+    <form action="/weather.html" method="get" target="results_iframe" class="elegant-aero">
+        <label for="station-input">
+            <span>Station:</span>
+            <input type="text" id="station-input" name="station" value="0" required>
+        </label>
+        <label for="weather-checkboxes">
+            <span>Weather:</span>
+            <div id="weather-checkboxes">
+                <label>
+                    <input type="checkbox" name="fog" value="1"> Fog
+                </label>
+                <label>
+                    <input type="checkbox" name="rain" value="1"> Rain
+                </label>
+                <label>
+                    <input type="checkbox" name="snow" value="1"> Snow
+                </label>
+                <label>
+                    <input type="checkbox" name="hail" value="1"> Hail
+                </label>
+                <label>
+                    <input type="checkbox" name="thunder" value="1"> Thunder
+                </label>
+                <label>
+                    <input type="checkbox" name="tornado" value="1"> Tornado
+                </label>
+            </div>
+        </label>
+        <label>
+            <span>&nbsp;</span>
+            <input type="submit" value="Submit">
+        </label>
+    </form>
+</div>
+
+<!-- Results Iframe -->
+<iframe name="results_iframe"></iframe>
+</body>
+</html>
